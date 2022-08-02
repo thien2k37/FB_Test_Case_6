@@ -1,0 +1,23 @@
+<img [src]="avatar" style="width: 100px; height: 100px; border-radius: 50%; padding: 20px 0 0 20px">
+<h3>history delete wallet : {{username}}</h3>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">icon</th>
+    <th scope="col">NameWallet</th>
+    <th scope="col">totalMoney</th>
+    <th scope="col">MoneyType</th>
+    =  </tr>
+  </thead>
+  <tbody>
+  <tbody *ngFor="let wallet of wallets; index as i">
+  <tr>
+    <th scope="row">{{i + 1}}</th>
+    <td>{{wallet.icon}}</td>
+    <td>{{wallet.name}}</td>
+    <td>{{wallet.totalMoney}}</td>
+    <td>{{wallet.moneyType.name}}</td>
+  </tr>
+  </tbody>
+</table>

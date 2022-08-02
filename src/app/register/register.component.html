@@ -1,0 +1,126 @@
+<!--
+<div class="container">
+
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      &lt;!&ndash; Nested Row within Card Body &ndash;&gt;
+      <div class="row">
+        <div class="col-lg-5 d-none d-lg-block bg-register-image" style="background: url('https://lh3.googleusercontent.com/2bSgXcZJgvuYyoEBw_m2TBM8LxaxwSBM91QBtW0_mD1RWeydVI_pO4713ZXrPkFTOk4cpIBC8s-IuE7p6ifzEEcYR4bolUFWh_zGH02eV3DtRGsg8MzAznDvuD1_HivWHV4HB5FhNStu5VlGAeLiALS5qFCKoXLZAVe9S89MiHImwD6n6AIs3JLXR4LR-OemkUxTHR2J8F6kylLKTLWkT0NaREujFCggo0amy7HlGSRuxh6M5IoV0rTyvtT_H_rBGG-db1hUfeI0utcyZRfPwv0VSCgB5YkkAVkqLrdvlGgTwt7p3eFhSvV8JKSx8k1MV1MhB-VdlL-7eMqdRgbSmpH_sbYkz1FXdfHpxDFP1E1acGBBSmJY4eUb7DconUVbq3rbibMT1Umv2ZiMUn6vaMjl1gSat05JAB7WlVjDg5jGMD15fFCQWUzpCd2MoBukjdyAcMr-nztMseCWXdlvoLWm_yS11vYY3FtzysZggzuLKjBi0QL9io-vJrB8ldSnyYcAToeLpnva6ioMBXB4Arn0FD1DQEPPqMEfHxeawDZn0-d-VWRbBv1To6zB72EjTMHvuX2ppdvWcVW-nsPpJdwOr2a-oRxRLIS8UdPuG4IoMQouqIqKDBdqcrwV1mwGImwsDd6DVNjKpPhWoKT4OoeRZeC7obpJ_ua1K3SOLLb2uXzs9Kn6YJV2cKOxaqNbC2K1lKRJe3gzlEM_IiSqans=w2438-h1828-no?authuser=0'); background-position: center; background-size: cover"></div>
+        <div class="col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Tạo mới tài khoản</h1>
+            </div>
+            <form class="user" [formGroup]="registerForm" (ngSubmit)="register()">
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                         placeholder="Tên đăng nhập" formControlName="username">
+                  <div
+                    *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched">
+                    <div class="alert alert-danger mt-1" role="alert"
+                         *ngIf="registerForm.get('username').errors.minlength">
+                      Tên đăng nhập từ 6-12 kí tự
+                    </div>
+                    <div class="alert alert-danger mt-1" role="alert"
+                         *ngIf="registerForm.get('username').errors.required">
+                      Nhập vào tên đăng nhập
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" id="exampleLastName"
+                         placeholder="Họ và Tên" formControlName="name">
+                  <div
+                    *ngIf="registerForm.get('name').invalid && registerForm.get('name').touched">
+                    <div class="alert alert-danger mt-1" role="alert"
+                         *ngIf="registerForm.get('name').errors.minlength">
+                      Tên đăng nhập từ 6 trở lên
+                    </div>
+                    <div class="alert alert-danger mt-1" role="alert"
+                         *ngIf="registerForm.get('name').errors.required">
+                      Nhập vào tên
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                       placeholder="Địa chỉ mail" formControlName="email">
+                <div
+                  *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched">
+                  <div class="alert alert-danger mt-1" role="alert"
+                       *ngIf="registerForm.get('email').errors.email">
+                    Chưa đúng định dạng
+                  </div>
+                  <div class="alert alert-danger mt-1" role="alert"
+                       *ngIf="registerForm.get('email').errors.required">
+                    Nhập vào email
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="password" class="form-control form-control-user"
+                         id="exampleInputPassword" placeholder="Mật khẩu" formControlName="password">
+                  <div
+                    *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched">
+                    <div class="alert alert-danger mt-1" role="alert"
+                         *ngIf="registerForm.get('password').errors.minlength">
+                      Mật khẩu từ 6-12 kí tự
+                    </div>
+                    <div class="alert alert-danger mt-1" role="alert"
+                         *ngIf="registerForm.get('password').errors.required">
+                      Nhập vào mật khẩu
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" class="form-control form-control-user"
+                         id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu" formControlName="confirmPassword">
+                  <div
+                    *ngIf="registerForm.get('confirmPassword').invalid && registerForm.get('confirmPassword').touched">
+                    <div class="alert alert-danger mt-1" role="alert"
+                         *ngIf="registerForm.get('confirmPassword').errors.required">
+                      Nhập vào mật khẩu
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-3">
+                  <div class="" (change)="openSelect($event)" id="des">
+                    Bạn có phải sinh viên trường<br> Đại học Giao thông vận tải?
+                    <input type="checkbox" id="utc">
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-3" id="truong" style="display: none">
+                  <div class="form-group"  >
+                    <input type="text" class="form-control form-control-user"
+                           placeholder="Mã sinh viên" formControlName="msv">
+                  </div>
+                </div>
+
+              </div>
+              <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng ký">
+              <hr>
+            </form>
+            <hr>
+            <div class="text-center">
+              <a class="small" [routerLink]="['/login']">Đăng nhập!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="../assets/vendor/jquery/jquery.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<script src="../assets/js/sb-admin-2.min.js"></script>
+
+<script src="../assets/vendor/chart.js/Chart.min.js"></script>
+<script src="../assets/js/demo/chart-area-demo.js"></script>
+<script src="../assets/js/demo/chart-pie-demo.js"></script>
+-->
